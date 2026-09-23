@@ -1,1 +1,129 @@
 @import "tailwindcss";
+
+/* ============================================
+   RAW DESIGN TOKENS — dark is the default (:root)
+   ============================================ */
+:root {
+  --background: #05080D;
+  --surface: #0A1017;
+  --elevated: #101821;
+
+  --foreground: #F4F7FA;
+  --foreground-secondary: #A4AFBB;
+  --foreground-muted: #667382;
+
+  --accent: #20D9FF;
+  --accent-soft: #20D9FF1A;
+
+  --border-color: #1B2835;
+}
+
+/* Light theme overrides — applied later via a .light class on <html> */
+.light {
+  --background: #F6F8FB;
+  --surface: #FFFFFF;
+  --elevated: #EEF2F6;
+
+  --foreground: #081018;
+  --foreground-secondary: #455463;
+  --foreground-muted: #778492;
+
+  --accent: #009FC2;
+  --accent-soft: #009FC21A;
+
+  --border-color: #DCE3EA;
+}
+
+/* ============================================
+   MAP TOKENS INTO TAILWIND
+   This generates real utility classes:
+   bg-background, text-accent, border-border, font-display, etc.
+   ============================================ */
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-border: var(--border-color);
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* ============================================
+   GLOBAL RESET & FOUNDATION
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+
+  /* subtle technical grid — visible mainly in large empty areas */
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border-color) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border-color) 45%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* ============================================
+   SECTION SPACING CONVENTION
+   mobile: 72px–112px | desktop: 96px–160px
+   Future sections will use/extend this class.
+   ============================================ */
+.section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION FOUNDATION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
