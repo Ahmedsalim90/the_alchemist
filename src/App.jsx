@@ -1,5 +1,7 @@
+import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import CaseStudyPage from './pages/CaseStudyPage'
 
 import Hero from './sections/Hero'
 import SelectedWork from './sections/SelectedWork'
@@ -12,22 +14,31 @@ import Collaboration from './sections/Collaboration'
 import GithubCode from './sections/GithubCode'
 import Contact from './sections/Contact'
 
+function HomePage() {
+  return (
+    <main>
+      <Hero />
+      <SelectedWork />
+      <AlchemistMethod />
+      <DesignEngineering />
+      <Toolbox />
+      <About />
+      <Lab />
+      <Collaboration />
+      <GithubCode />
+      <Contact />
+    </main>
+  )
+}
+
 function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <Hero />
-        <SelectedWork />
-        <AlchemistMethod />
-        <DesignEngineering />
-        <Toolbox />
-        <About />
-        <Lab />
-        <Collaboration />
-        <GithubCode />
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work/:slug" element={<CaseStudyPage />} />
+      </Routes>
       <Footer />
     </>
   )
