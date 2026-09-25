@@ -1,10 +1,99 @@
 import Section from '../components/layout/Section'
-import PlaceholderContent from '../components/layout/PlaceholderContent'
+import Button from '../components/ui/Button'
+import { PersonIcon, PinIcon } from '../components/ui/icons'
+import useTypewriter from '../hooks/useTypewriter'
 
 function Hero() {
+  const { text, done } = useTypewriter()
+
   return (
-    <Section id="hero" surface="background">
-      <PlaceholderContent label="Hero" title="HERO" />
+    <Section id="hero" surface="background" className="pt-20 pb-24 lg:pt-24 lg:pb-32">
+      <div className="grid items-center gap-12 md:grid-cols-[3fr_2fr] md:gap-10 lg:gap-16">
+        {/* LEFT — content */}
+        <div className="text-left">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-accent" aria-hidden="true" />
+            <p className="text-xs uppercase tracking-widest text-foreground-muted">
+              Nsangou Ahmed Salim
+            </p>
+          </div>
+
+          <p className="mt-4 whitespace-nowrap font-display text-base font-semibold uppercase tracking-widest text-accent sm:text-lg">
+            {text}
+            {!done && (
+              <span
+                className="ml-1 inline-block h-[0.9em] w-[2px] translate-y-[1px] animate-pulse bg-accent align-middle"
+                aria-hidden="true"
+              />
+            )}
+          </p>
+
+          <h1 className="mt-9 font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-5xl xl:text-6xl">
+            I TURN REAL-WORLD
+            <br />
+            PROBLEMS <span className="text-accent">INTO SOFTWARE.</span>
+          </h1>
+
+          <p className="mt-9 max-w-xl text-base leading-loose text-foreground-secondary sm:text-lg">
+            Software Engineering student, developer and builder creating web
+            applications, mobile experiences, backend systems and AI-powered
+            tools.
+          </p>
+
+          <div className="mt-8 h-px w-full max-w-xs bg-border" aria-hidden="true" />
+
+          <p className="mt-8 text-xs uppercase tracking-widest text-foreground-secondary">
+            Designer &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Problem Solver
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button href="#work" variant="primary">
+              EXPLORE MY WORK →
+            </Button>
+            <Button href="#contact" variant="secondary">
+              LET'S BUILD →
+            </Button>
+          </div>
+
+          <div className="mt-12 flex items-center gap-2 text-xs uppercase tracking-widest text-foreground-muted">
+            <PinIcon className="h-4 w-4" />
+            Based in Cameroon &nbsp;·&nbsp; Open to opportunities
+          </div>
+        </div>
+
+        {/* RIGHT — portrait panel, fills its grid column exactly */}
+        <div className="relative w-full">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-surface">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-1/2 w-1/2 rounded-full bg-elevated opacity-40 blur-3xl" />
+            </div>
+
+            <div className="relative flex h-full w-full items-center justify-center">
+              <PersonIcon className="h-24 w-24 text-foreground-muted sm:h-28 sm:w-28" />
+            </div>
+
+            <div className="absolute right-5 top-5 text-right">
+              <p className="text-[10px] font-semibold uppercase leading-tight tracking-widest text-foreground-muted">
+                Building
+                <br />
+                Better
+                <br />
+                Solutions
+              </p>
+              <span className="mt-2 inline-block h-px w-8 bg-accent" aria-hidden="true" />
+            </div>
+          </div>
+
+          <div
+            className="pointer-events-none absolute -left-2 -top-2 h-10 w-10 border-l-2 border-t-2 border-accent"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute -bottom-2 -right-2 h-10 w-10 border-b-2 border-r-2 border-accent"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
     </Section>
   )
 }

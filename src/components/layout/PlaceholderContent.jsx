@@ -1,6 +1,8 @@
+import Reveal from '../ui/Reveal'
+
 function PlaceholderContent({ label, title }) {
   return (
-    <>
+    <Reveal>
       <p className="text-xs uppercase tracking-widest text-foreground-muted">
         {label}
       </p>
@@ -10,7 +12,7 @@ function PlaceholderContent({ label, title }) {
       <p className="mt-4 max-w-xl text-foreground-secondary">
         Section placeholder — content will be implemented in a later milestone.
       </p>
-    </>
+    </Reveal>
   )
 }
 

@@ -1,6 +1,16 @@
 function Container({ children, className = '' }) {
   return (
-    <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 ${className}`}>
+    <div
+      className={`w-full ${className}`}
+      style={{
+        maxWidth: '1280px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingLeft: 'clamp(1rem, 4vw, 3rem)',
+        paddingRight: 'clamp(1rem, 4vw, 3rem)',
+        boxSizing: 'border-box',
+      }}
+    >
       {children}
     </div>
   )
