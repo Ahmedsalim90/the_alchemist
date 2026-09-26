@@ -1,7 +1,17 @@
+import infraaiLogo from '../assets/images/projects/infraai-logo.png'
+import identixLogo from '../assets/images/projects/identix-logo.JPEG'
+import tokLogo from '../assets/images/projects/tok-logo.png'
+import brochomakerLogo from '../assets/images/projects/brochomaker-logo.JPEG'
+import fileOrganiserPreview from '../assets/images/projects/file-organiser-preview.png'
+import infraaiCaseStudy from '../assets/images/projects/infraai-case-study.png'
+import identixCaseStudy from '../assets/images/projects/identix-case-study.png'
+
 export const projects = [
   {
     id: 'infraai',
     title: 'InfraAI',
+    image: infraaiLogo,
+    caseStudyImage: infraaiCaseStudy,
     category: 'AI / System Architecture',
     teamProject: true,
     description:
@@ -39,6 +49,8 @@ export const projects = [
   {
     id: 'identix',
     title: 'IDENTIX',
+    image: identixLogo,
+    caseStudyImage: identixCaseStudy,
     category: 'Web Application',
     teamProject: false,
     description:
@@ -83,6 +95,7 @@ export const projects = [
     tech: ['Flutter', 'Dart', 'Firebase'],
     featured: false,
     links: [{ label: 'GitHub', href: 'https://github.com/Ahmedsalim90/Tok' }],
+    image: tokLogo,
 
     role: 'Developer',
     type: 'Individual Project',
@@ -116,6 +129,7 @@ export const projects = [
     tech: ['HTML', 'CSS', 'JavaScript', 'PHP'],
     featured: false,
     links: [{ label: 'GitHub', href: 'https://github.com/Ahmedsalim90/BrochoMaker' }],
+    image: brochomakerLogo,
 
     role: 'Developer',
     type: 'Individual Project',
@@ -148,6 +162,7 @@ export const projects = [
       'A C program that organizes files inside a folder based on the selected directory.',
     tech: ['C'],
     featured: false,
+    image: fileOrganiserPreview,
     links: [{ label: 'GitHub', href: 'https://github.com/Ahmedsalim90/File_organiser.c' }],
 
     role: 'Developer',

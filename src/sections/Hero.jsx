@@ -1,10 +1,14 @@
 import Section from '../components/layout/Section'
 import Button from '../components/ui/Button'
 import { PersonIcon, PinIcon } from '../components/ui/icons'
-import useTypewriter from '../hooks/useTypewriter'
+import { useTypewriter, useHeadlineTypewriter } from '../hooks/useTypewriter'
+import useDelayedReveal from '../hooks/useDelayedReveal'
+import heroPhoto from '../assets/images/hero/hero-photo.jpg'
 
 function Hero() {
   const { text, done } = useTypewriter()
+const { text: headlineText, done: headlineDone } = useHeadlineTypewriter(done)
+  const imageRevealed = useDelayedReveal(700)
 
   return (
     <Section id="hero" surface="background" className="pt-20 pb-24 lg:pt-24 lg:pb-32">
@@ -28,11 +32,22 @@ function Hero() {
             )}
           </p>
 
-          <h1 className="mt-9 font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-5xl xl:text-6xl">
-            I TURN REAL-WORLD
-            <br />
-            PROBLEMS <span className="text-accent">INTO SOFTWARE.</span>
-          </h1>
+         <h1 className="mt-9 min-h-[2.2em] font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[52px] xl:text-[58px]">
+  {headlineText.split('\n').map((line, index) => (
+    <span key={index} className="block">
+      {line.split('INTO SOFTWARE.')[0]}
+      {line.includes('INTO SOFTWARE.') && (
+        <span className="text-accent">INTO SOFTWARE.</span>
+      )}
+    </span>
+  ))}
+  {!headlineDone && (
+    <span
+      className="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[3px] animate-pulse bg-accent align-middle"
+      aria-hidden="true"
+    />
+  )}
+</h1>
 
           <p className="mt-9 max-w-xl text-base leading-loose text-foreground-secondary sm:text-lg">
             Software Engineering student, developer and builder creating web
@@ -67,10 +82,13 @@ function Hero() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-1/2 w-1/2 rounded-full bg-elevated opacity-40 blur-3xl" />
             </div>
-
-            <div className="relative flex h-full w-full items-center justify-center">
-              <PersonIcon className="h-24 w-24 text-foreground-muted sm:h-28 sm:w-28" />
-            </div>
+<img
+  src={heroPhoto}
+  alt="Nsangou Ahmed Salim — Full-Stack & Mobile Developer"
+  className={`h-full w-full object-cover transition-all duration-700 ease-out ${
+    imageRevealed ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
+  }`}
+/>
 
             <div className="absolute right-5 top-5 text-right">
               <p className="text-[10px] font-semibold uppercase leading-tight tracking-widest text-foreground-muted">
@@ -85,13 +103,17 @@ function Hero() {
           </div>
 
           <div
-            className="pointer-events-none absolute -left-2 -top-2 h-10 w-10 border-l-2 border-t-2 border-accent"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute -bottom-2 -right-2 h-10 w-10 border-b-2 border-r-2 border-accent"
-            aria-hidden="true"
-          />
+  className={`pointer-events-none absolute -left-2 -top-2 h-10 w-10 border-l-2 border-t-2 border-accent transition-transform duration-700 ease-out ${
+    imageRevealed ? 'translate-x-0 translate-y-0' : 'translate-x-[100%] translate-y-[100%]'
+  }`}
+  aria-hidden="true"
+/>
+<div
+  className={`pointer-events-none absolute -bottom-2 -right-2 h-10 w-10 border-b-2 border-r-2 border-accent transition-transform duration-700 ease-out ${
+    imageRevealed ? 'translate-x-0 translate-y-0' : '-translate-x-[100%] -translate-y-[100%]'
+  }`}
+  aria-hidden="true"
+/>
         </div>
       </div>
     </Section>

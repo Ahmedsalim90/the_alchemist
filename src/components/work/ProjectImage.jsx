@@ -1,4 +1,12 @@
-function ProjectImage({ label, alt }) {
+function ProjectImage({ label, alt, image }) {
+  if (image) {
+    return (
+      <div className="flex aspect-video w-full items-center justify-center overflow-hidden rounded-md border border-border bg-elevated p-8">
+        <img src={image} alt={alt} className="max-h-full max-w-full object-contain" />
+      </div>
+    )
+  }
+
   return (
     <div
       role="img"

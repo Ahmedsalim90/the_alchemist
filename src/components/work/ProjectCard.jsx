@@ -9,10 +9,11 @@ function ProjectCard({ project, delay = 0 }) {
       <article className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-200 hover:border-accent/60">
         <Link to={`/work/${project.id}`} className="p-3">
           <div className="transition-transform duration-300 group-hover:scale-[1.015]">
-            <ProjectImage
-              label={project.title}
-              alt={`${project.title} project preview`}
-            />
+           <ProjectImage
+  label={project.title}
+  alt={`${project.title} logo`}
+  image={project.image}
+/>
           </div>
         </Link>
 

@@ -67,9 +67,10 @@ function CaseStudyPage() {
 
         <Reveal className="mt-12">
           <ProjectImage
-            label={project.title}
-            alt={`${project.title} project preview`}
-          />
+  label={project.title}
+  alt={`${project.title} project preview`}
+  image={project.caseStudyImage || project.image}
+/>
         </Reveal>
 
         <div className="mt-4">

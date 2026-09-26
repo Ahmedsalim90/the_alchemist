@@ -10,9 +10,10 @@ function FeaturedProjectCard({ project, delay = 0 }) {
         <Link to={`/work/${project.id}`} className="p-3">
           <div className="transition-transform duration-300 group-hover:scale-[1.015]">
             <ProjectImage
-              label={project.title}
-              alt={`${project.title} project preview`}
-            />
+  label={project.title}
+  alt={`${project.title} logo`}
+  image={project.image}
+/>
           </div>
         </Link>
 
