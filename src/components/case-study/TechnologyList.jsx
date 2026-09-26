@@ -1,4 +1,4 @@
-function TechnologyList({ build }) {
+function TechnologyList({ build, categoryLabels }) {
   if (!build) return null
 
   return (
@@ -6,7 +6,7 @@ function TechnologyList({ build }) {
       {Object.entries(build).map(([category, items]) => (
         <div key={category}>
           <dt className="text-xs font-semibold uppercase tracking-widest text-foreground-muted">
-            {category}
+            {categoryLabels?.[category] || category}
           </dt>
           <dd className="mt-2 text-sm text-foreground">{items.join(' · ')}</dd>
         </div>

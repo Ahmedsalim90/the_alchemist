@@ -1,8 +1,8 @@
-function AcademicJourney({ steps }) {
+function AcademicJourney({ steps, label }) {
   return (
     <div>
       <p className="text-xs font-semibold uppercase tracking-widest text-foreground-muted">
-        Academic Journey
+        {label}
       </p>
       <ul className="mt-3 flex flex-col gap-2">
         {steps.map((step, index) => (

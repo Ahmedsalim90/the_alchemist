@@ -1,15 +1,25 @@
 import Section from '../components/layout/Section'
 import Button from '../components/ui/Button'
-import { PersonIcon, PinIcon } from '../components/ui/icons'
-import { useTypewriter, useHeadlineTypewriter } from '../hooks/useTypewriter'
+import { PinIcon } from '../components/ui/icons'
+import { useTypedSequence } from '../hooks/useTypewriter'
 import useDelayedReveal from '../hooks/useDelayedReveal'
+import { useLanguage } from '../context/LanguageContext'
 import heroPhoto from '../assets/images/hero/hero-photo.jpg'
 
 function Hero() {
-  const { text, done } = useTypewriter()
-const { text: headlineText, done: headlineDone } = useHeadlineTypewriter(done)
+  const { t, language } = useLanguage()
   const imageRevealed = useDelayedReveal(700)
 
+  const roleSequence = [
+    { text: t.hero.roleDesigner, typeSpeed: 90, holdAfter: 700, eraseSpeed: 45 },
+    { text: t.hero.roleFull, typeSpeed: 55, holdAfter: 0, eraseSpeed: 0 },
+  ]
+  const { text, done } = useTypedSequence(roleSequence, true, 300, language)
+
+  const headlineSequence = [
+    { text: `${t.hero.headlineLine1}\n${t.hero.headlineLine2}`, typeSpeed: 55, holdAfter: 0, eraseSpeed: 0 },
+  ]
+  const { text: headlineText, done: headlineDone } = useTypedSequence(headlineSequence, done, 250, language)
   return (
     <Section id="hero" surface="background" className="pt-20 pb-24 lg:pt-24 lg:pb-32">
       <div className="grid items-center gap-12 md:grid-cols-[3fr_2fr] md:gap-10 lg:gap-16">
@@ -32,13 +42,10 @@ const { text: headlineText, done: headlineDone } = useHeadlineTypewriter(done)
             )}
           </p>
 
-         <h1 className="mt-9 min-h-[2.2em] font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[52px] xl:text-[58px]">
+        <h1 className="mt-9 min-h-[2.2em] font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[52px] xl:text-[58px]">
   {headlineText.split('\n').map((line, index) => (
-    <span key={index} className="block">
-      {line.split('INTO SOFTWARE.')[0]}
-      {line.includes('INTO SOFTWARE.') && (
-        <span className="text-accent">INTO SOFTWARE.</span>
-      )}
+    <span key={index} className={`block ${index === 1 ? 'text-accent' : ''}`}>
+      {line}
     </span>
   ))}
   {!headlineDone && (
@@ -50,30 +57,24 @@ const { text: headlineText, done: headlineDone } = useHeadlineTypewriter(done)
 </h1>
 
           <p className="mt-9 max-w-xl text-base leading-loose text-foreground-secondary sm:text-lg">
-            Software Engineering student, developer and builder creating web
-            applications, mobile experiences, backend systems and AI-powered
-            tools.
-          </p>
+  {t.hero.paragraph}
+</p>
 
-          <div className="mt-8 h-px w-full max-w-xs bg-border" aria-hidden="true" />
+<div className="mt-8 h-px w-full max-w-xs bg-border" aria-hidden="true" />
 
-          <p className="mt-8 text-xs uppercase tracking-widest text-foreground-secondary">
-            Designer &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Problem Solver
-          </p>
+<p className="mt-8 text-xs uppercase tracking-widest text-foreground-secondary">
+  {t.hero.capabilityLine}
+</p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#work" variant="primary">
-              EXPLORE MY WORK →
-            </Button>
-            <Button href="#contact" variant="secondary">
-              LET'S BUILD →
-            </Button>
-          </div>
+<div className="mt-10 flex flex-wrap gap-4">
+  <Button href="#work" variant="primary">{t.hero.ctaPrimary}</Button>
+  <Button href="#contact" variant="secondary">{t.hero.ctaSecondary}</Button>
+</div>
 
-          <div className="mt-12 flex items-center gap-2 text-xs uppercase tracking-widest text-foreground-muted">
-            <PinIcon className="h-4 w-4" />
-            Based in Cameroon &nbsp;·&nbsp; Open to opportunities
-          </div>
+<div className="mt-12 flex items-center gap-2 text-xs uppercase tracking-widest text-foreground-muted">
+  <PinIcon className="h-4 w-4" />
+  {t.hero.location}
+</div>
         </div>
 
         {/* RIGHT — portrait panel, fills its grid column exactly */}

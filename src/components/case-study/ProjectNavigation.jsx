@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../../context/LanguageContext'
 
 function ProjectNavigation({ previous, next }) {
+  const { t } = useLanguage()
+
   if (!previous && !next) return null
 
   return (
@@ -17,11 +20,8 @@ function ProjectNavigation({ previous, next }) {
       </div>
       <div className="text-left sm:text-right">
         {next && (
-          <Link
-            to={`/work/${next.id}`}
-            className="block text-xs uppercase tracking-widest text-foreground-muted"
-          >
-            Next project
+          <Link to={`/work/${next.id}`} className="block text-xs uppercase tracking-widest text-foreground-muted">
+            {t.caseStudy.nextProject}
             <span className="mt-1 block text-sm font-semibold text-foreground transition-colors hover:text-accent">
               {next.title} →
             </span>

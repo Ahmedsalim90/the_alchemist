@@ -2,7 +2,8 @@ export const academicJourney = [
   'GCE O/L',
   'GCE A/L',
   'Software Engineering',
-  'YIBS — HND2 / Level 2',
+  'YIBS HND1 / Level 1',
+  'YIBS HND2 / Level 2',
 ]
 
 export const internship = {

@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CaseStudyPage from './pages/CaseStudyPage'
-
+import FloatingWhatsApp from './components/contact/FloatingWhatsApp'
 import Hero from './sections/Hero'
 import SelectedWork from './sections/SelectedWork'
 import AlchemistMethod from './sections/AlchemistMethod'
@@ -16,18 +16,21 @@ import Contact from './sections/Contact'
 
 function HomePage() {
   return (
-    <main>
-      <Hero />
-      <SelectedWork />
-      <AlchemistMethod />
-      <DesignEngineering />
-      <Toolbox />
-      <About />
-      <Lab />
-      <Collaboration />
-      <GithubCode />
-      <Contact />
-    </main>
+    <>
+      <main>
+        <Hero />
+        <SelectedWork />
+        <AlchemistMethod />
+        <DesignEngineering />
+        <Toolbox />
+        <About />
+        <Lab />
+        <Collaboration />
+        <GithubCode />
+        <Contact />
+      </main>
+      <FloatingWhatsApp />
+    </>
   )
 }
 

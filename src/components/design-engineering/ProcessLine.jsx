@@ -15,10 +15,7 @@ function ProcessLine({ steps }) {
             <p className="text-xs font-semibold uppercase tracking-widest text-foreground">
               {step}
             </p>
-            <span
-              className="hidden h-px w-full bg-border sm:block"
-              aria-hidden="true"
-            />
+            <span className="hidden h-px w-full bg-border sm:block" aria-hidden="true" />
           </div>
         ))}
       </div>
