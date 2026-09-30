@@ -3,7 +3,7 @@ import Reveal from '../ui/Reveal'
 function LabCard({ item, delay = 0 }) {
   return (
     <Reveal delay={delay}>
-      <div className="h-full rounded-lg border border-border bg-background p-6">
+      <div className="h-full rounded-lg border border-border bg-background p-6 card-lift">
         <div className="flex items-center justify-between gap-3">
           <h3 className="font-display text-lg font-bold text-foreground">
             {item.title}

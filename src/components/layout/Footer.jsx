@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Container from '../ui/Container'
 import Logo from '../ui/Logo'
 import ThemeToggle from '../ui/ThemeToggle'
@@ -14,23 +13,20 @@ function Footer() {
   const emailUrl = contactMethods.find((m) => m.label === 'Email').href
 
   const exploreLinks = [
-    { label: t.nav.work, href: '#work' },
-    { label: t.nav.about, href: '#about' },
-    { label: t.nav.lab, href: '#lab' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.work, href: '/#work' },
+    { label: t.nav.about, href: '/#about' },
+    { label: t.nav.lab, href: '/#lab' },
+    { label: t.nav.contact, href: '/#contact' },
   ]
 
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="relative overflow-hidden border-t border-border bg-surface">
+      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-accent/5 blur-3xl" />
       <Container className="py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
-              <Logo />
-              <span className="font-display text-sm font-semibold uppercase tracking-widest text-foreground">
-                The Alchemist
-              </span>
-            </div>
+            <Logo className="h-20 w-auto -my-4" />
             <p className="mt-4 text-sm font-semibold text-foreground">Nsangou Ahmed Salim</p>
             <p className="mt-1 text-sm text-foreground-secondary">{t.footer.role}</p>
             <p className="mt-1 text-xs uppercase tracking-widest text-foreground-muted">
@@ -48,7 +44,7 @@ function Footer() {
             <ul className="mt-4 flex flex-col gap-3">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-foreground-secondary transition-colors hover:text-accent">
+                  <a href={link.href} className="text-sm inline-block text-foreground-secondary transition-all duration-300 hover:translate-x-1 hover:text-accent">
                     {link.label}
                   </a>
                 </li>
@@ -67,7 +63,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#work" className="text-sm text-foreground-secondary transition-colors hover:text-accent">
+                <a href="/#work" className="text-sm text-foreground-secondary transition-colors hover:text-accent">
                   {t.footer.selectedWork}
                 </a>
               </li>
@@ -96,13 +92,13 @@ function Footer() {
               </li>
             </ul>
             <div className="mt-5 flex items-center gap-4">
-              <a href={githubProfile} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-foreground-secondary transition-colors hover:text-accent">
+              <a href={githubProfile} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-button flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/60 transition-all duration-300 hover:-translate-y-0.5">
                 <GithubIcon className="h-5 w-5" />
               </a>
-              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground-secondary transition-colors hover:text-accent">
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-button flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/60 transition-all duration-300 hover:-translate-y-0.5">
                 <LinkedinIcon className="h-5 w-5" />
               </a>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="text-foreground-secondary transition-colors hover:text-accent">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-button flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/60 transition-all duration-300 hover:-translate-y-0.5">
                 <WhatsappIcon className="h-5 w-5" />
               </a>
             </div>

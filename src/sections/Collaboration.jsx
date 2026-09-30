@@ -5,6 +5,7 @@ import ProjectImage from '../components/work/ProjectImage'
 import CollaborationStep from '../components/collaboration/CollaborationStep'
 import { getProjectBySlug } from '../data/projects'
 import { useLanguage } from '../context/LanguageContext'
+import ToolTag from '../components/toolbox/ToolTag'
 
 function Collaboration() {
   const { t } = useLanguage()
@@ -57,9 +58,9 @@ function Collaboration() {
               <p className="mt-4 text-xs uppercase tracking-widest text-foreground-muted">
                 {t.collaboration.technology}
               </p>
-              <p className="mt-1 text-sm text-foreground">
-                {infraai.tech.join(' · ')}
-              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {infraai.tech.map((tech) => <ToolTag key={tech} compact>{tech}</ToolTag>)}
+              </div>
 
               <p className="mt-4 text-xs uppercase tracking-widest text-foreground-muted">
                 {t.collaboration.collaborativeElements}

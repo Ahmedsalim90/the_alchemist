@@ -21,10 +21,10 @@ function Hero() {
   ]
   const { text: headlineText, done: headlineDone } = useTypedSequence(headlineSequence, done, 250, language)
   return (
-    <Section id="hero" surface="background" className="pt-20 pb-24 lg:pt-24 lg:pb-32">
-      <div className="grid items-center gap-12 md:grid-cols-[3fr_2fr] md:gap-10 lg:gap-16">
+    <Section id="hero" surface="background" className="!pt-12 pb-24 lg:!pt-20 lg:pb-36">
+      <div className="grid items-center gap-12 md:grid-cols-[1.35fr_1fr] md:gap-12 lg:gap-20">
         {/* LEFT — content */}
-        <div className="text-left">
+        <div className="text-left animate-rise">
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-accent" aria-hidden="true" />
             <p className="text-xs uppercase tracking-widest text-foreground-muted">
@@ -42,7 +42,7 @@ function Hero() {
             )}
           </p>
 
-        <h1 className="mt-9 min-h-[2.2em] font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[52px] xl:text-[58px]">
+        <h1 className="mt-9 min-h-[2.2em] font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[64px] xl:text-[76px] leading-[1.02] tracking-[-0.035em]">
   {headlineText.split('\n').map((line, index) => (
     <span key={index} className={`block ${index === 1 ? 'text-accent' : ''}`}>
       {line}
@@ -67,8 +67,8 @@ function Hero() {
 </p>
 
 <div className="mt-10 flex flex-wrap gap-4">
-  <Button href="#work" variant="primary">{t.hero.ctaPrimary}</Button>
-  <Button href="#contact" variant="secondary">{t.hero.ctaSecondary}</Button>
+  <Button href="/#work" variant="primary">{t.hero.ctaPrimary}</Button>
+  <Button href="/#contact" variant="secondary">{t.hero.ctaSecondary}</Button>
 </div>
 
 <div className="mt-12 flex items-center gap-2 text-xs uppercase tracking-widest text-foreground-muted">
@@ -78,8 +78,10 @@ function Hero() {
         </div>
 
         {/* RIGHT — portrait panel, fills its grid column exactly */}
-        <div className="relative w-full">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-border bg-surface">
+        <div className="relative w-full animate-rise [animation-delay:200ms]">
+          <div className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-accent opacity-20 blur-[90px]" aria-hidden="true" />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_40px_120px_-40px_var(--glow)] group/photo">
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1/4 bg-gradient-to-b from-accent/10 to-transparent [animation:scan_6s_linear_infinite]" aria-hidden="true" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-1/2 w-1/2 rounded-full bg-elevated opacity-40 blur-3xl" />
             </div>
@@ -87,7 +89,7 @@ function Hero() {
   src={heroPhoto}
   alt="Nsangou Ahmed Salim — Full-Stack & Mobile Developer"
   className={`h-full w-full object-cover transition-all duration-700 ease-out ${
-    imageRevealed ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
+    imageRevealed ? 'scale-100 opacity-100 group-hover/photo:scale-[1.03]' : 'scale-105 opacity-0'
   }`}
 />
 

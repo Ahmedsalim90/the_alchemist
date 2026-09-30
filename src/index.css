@@ -1,78 +1,85 @@
 @import "tailwindcss";
 
-/* ============================================
-   RAW DESIGN TOKENS — dark is the default (:root)
-   ============================================ */
+/* ============ RAW TOKENS — dark default ============ */
 :root {
-  --background: #05080D;
-  --surface: #0A1017;
+  --background: #05080d;
+  --surface: #0a1017;
   --elevated: #101821;
-
-  --foreground: #F4F7FA;
-  --foreground-secondary: #A4AFBB;
+  --foreground: #f4f7fa;
+  --foreground-secondary: #a4afbb;
   --foreground-muted: #667382;
-
-  --accent: #20D9FF;
-  --accent-soft: #20D9FF1A;
-
-  --border-color: #1B2835;
+  --accent: #20d9ff;
+  --accent-soft: #20d9ff1a;
+  --border-color: #1b2835;
+  --glow: color-mix(in srgb, var(--accent) 35%, transparent);
+  --particle-rgb: 74, 218, 255;
+  --brand-html: #e34f26;
+  --brand-css: #663399;
+  --brand-javascript: #f7df1e;
+  --brand-bootstrap: #7952b3;
+  --brand-react: #61dafb;
+  --brand-flutter: #54c5f8;
+  --brand-dart: #2bb7f6;
+  --brand-firebase: #ffca28;
+  --brand-c: #a8b9cc;
+  --brand-cplusplus: #659ad2;
+  --brand-php: #8892bf;
+  --brand-python: #ffd343;
+  --brand-flask: #55c1d8;
+  --brand-fastapi: #00bfa5;
+  --brand-postgresql: #5c95cc;
+  --brand-openrouter: #b7c4d8;
+  --brand-git: #f05032;
+  --brand-ink: #f4f7fa;
+  --brand-docker: #2496ed;
+  --brand-androidstudio: #3ddc84;
+  --brand-figma: #f24e1e;
+  --brand-diagrams: #f08705;
+  --brand-node: #68a063;
+  --brand-linkedin: #0a66c2;
+  --brand-whatsapp: #25d366;
+  --brand-pin: #ff5f57;
+  --brand-theme: #ffc857;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light theme overrides — applied later via a .light class on <html> */
 .light {
-  --background: #F6F8FB;
-  --surface: #FFFFFF;
-  --elevated: #EEF2F6;
-
+  --background: #f6f8fb;
+  --surface: #ffffff;
+  --elevated: #eef2f6;
   --foreground: #081018;
   --foreground-secondary: #455463;
   --foreground-muted: #778492;
-
-  --accent: #009FC2;
-  --accent-soft: #009FC21A;
-
-  --border-color: #DCE3EA;
+  --accent: #009fc2;
+  --accent-soft: #009fc21a;
+  --border-color: #dce3ea;
+  --glow: color-mix(in srgb, var(--accent) 22%, transparent);
+  --particle-rgb: 0, 125, 158;
+  --brand-ink: #111820;
+  --brand-openrouter: #526171;
+  --brand-flask: #17758a;
 }
 
-/* ============================================
-   MAP TOKENS INTO TAILWIND
-   This generates real utility classes:
-   bg-background, text-accent, border-border, font-display, etc.
-   ============================================ */
 @theme {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-elevated: var(--elevated);
-
   --color-foreground: var(--foreground);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-muted: var(--foreground-muted);
-
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-
   --color-border: var(--border-color);
-
+  --color-whatsapp: var(--brand-whatsapp);
+  --color-whatsapp-soft: color-mix(in srgb, var(--brand-whatsapp) 12%, transparent);
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-/* ============================================
-   GLOBAL RESET & FOUNDATION
-   ============================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
- 
-}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
 
 body {
   background-color: var(--background);
@@ -81,59 +88,172 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
- 
-
-  /* subtle technical grid — visible mainly in large empty areas */
-  background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--border-color) 45%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--border-color) 45%, transparent) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-#root {
   overflow-x: clip;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
+
+/* Layered background: technical grid, circuit traces, and quiet falling points */
+.page-shell { position: relative; isolation: isolate; overflow-x: clip; }
+.page-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border-color) 46%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border-color) 46%, transparent) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 43%, color-mix(in srgb, var(--accent) 7%, transparent) 43% 43.08%, transparent 43.08% 100%);
+  background-size: 64px 64px, 64px 64px, 100% 100%;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  opacity: .82;
+}
+.page-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 10%, color-mix(in srgb, var(--accent) 5%, transparent) 10.05%, transparent 10.1%),
+    linear-gradient(90deg, transparent 84%, color-mix(in srgb, var(--accent) 5%, transparent) 84.05%, transparent 84.1%);
+}
+.page-shell > main,
+.page-shell > footer { position: relative; z-index: 2; }
+.particle-field {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+main, footer { isolation: isolate; }
+.section.bg-surface { background-color: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(2px); }
+.section.bg-elevated { background-color: color-mix(in srgb, var(--elevated) 90%, transparent); backdrop-filter: blur(2px); }
+
+.brand-html { color: var(--brand-html); }
+.brand-css { color: var(--brand-css); }
+.brand-javascript { color: var(--brand-javascript); }
+.brand-bootstrap { color: var(--brand-bootstrap); }
+.brand-react { color: var(--brand-react); }
+.brand-flutter { color: var(--brand-flutter); }
+.brand-dart { color: var(--brand-dart); }
+.brand-firebase { color: var(--brand-firebase); }
+.brand-c { color: var(--brand-c); }
+.brand-cplusplus { color: var(--brand-cplusplus); }
+.brand-php { color: var(--brand-php); }
+.brand-python { color: var(--brand-python); }
+.brand-flask { color: var(--brand-flask); }
+.brand-fastapi { color: var(--brand-fastapi); }
+.brand-postgresql { color: var(--brand-postgresql); }
+.brand-openrouter { color: var(--brand-openrouter); }
+.brand-git { color: var(--brand-git); }
+.brand-ink { color: var(--brand-ink); }
+.brand-docker { color: var(--brand-docker); }
+.brand-androidstudio { color: var(--brand-androidstudio); }
+.brand-figma { color: var(--brand-figma); }
+.brand-diagrams { color: var(--brand-diagrams); }
+.brand-node { color: var(--brand-node); }
+.brand-linkedin { color: var(--brand-linkedin); }
+.brand-whatsapp { color: var(--brand-whatsapp); }
+.text-pin { color: var(--brand-pin); }
+.text-theme-icon { color: var(--brand-theme); }
+.contact-icon-email { color: var(--accent); }
+.contact-icon-whatsapp { color: var(--brand-whatsapp); }
+.contact-icon-phone { color: var(--brand-theme); }
+.contact-icon-linkedin { color: var(--brand-linkedin); }
+.contact-icon-github { color: var(--brand-ink); }
+.border-whatsapp { border-color: color-mix(in srgb, var(--brand-whatsapp) 55%, var(--border-color)); }
+.bg-whatsapp-soft { background-color: color-mix(in srgb, var(--brand-whatsapp) 12%, var(--surface)); }
+.shadow-whatsapp { box-shadow: 0 12px 35px -15px color-mix(in srgb, var(--brand-whatsapp) 70%, transparent); }
+.social-button:hover { border-color: currentColor; box-shadow: 0 10px 25px -18px currentColor; }
+
+@media (max-width: 640px) {
+  .page-shell::before { background-size: 48px 48px, 48px 48px, 100% 100%; opacity: .58; }
+  .particle-field { opacity: .78; }
+}
+
+::selection { background: var(--accent); color: var(--background); }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+
+.section { position: relative; padding-top: 5.5rem; padding-bottom: 5.5rem; }
+@media (min-width: 1024px) { .section { padding-top: 8rem; padding-bottom: 8rem; } }
+
+/* Subtle hairline divider at the top of every section after the hero */
+.section + .section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1280px, 92vw);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--border-color) 20%, var(--border-color) 80%, transparent);
 }
 
-/* ============================================
-   SECTION SPACING CONVENTION
-   mobile: 72px–112px | desktop: 96px–160px
-   Future sections will use/extend this class.
-   ============================================ */
-.section {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
-}
+/* Premium interactive surfaces */
+a, button { -webkit-tap-highlight-color: transparent; }
 
-@media (min-width: 1024px) {
-  .section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+@utility card-lift {
+  transition: transform 0.5s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.5s var(--ease-out-expo);
+  &:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border-color));
+    box-shadow: 0 24px 60px -30px var(--glow);
   }
 }
 
-/* ============================================
-   REDUCED MOTION FOUNDATION
-   ============================================ */
+/* Button shine sweep */
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, color-mix(in srgb, white 35%, transparent) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.8s var(--ease-out-expo);
+  }
+  &:hover::after { transform: translateX(120%); }
+}
+
+/* Hero entrance */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@utility animate-rise {
+  animation: rise 0.9s var(--ease-out-expo) both;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@utility animate-float { animation: float-slow 7s ease-in-out infinite; }
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 2px;
 }

@@ -1,8 +1,8 @@
 export const NAV_LINKS = [
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Lab', href: '#lab' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work', href: '/#work' },
+  { label: 'About', href: '/#about' },
+  { label: 'Lab', href: '/#lab' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export const SOCIAL_LINKS = [

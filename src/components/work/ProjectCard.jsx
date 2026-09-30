@@ -3,13 +3,14 @@ import Reveal from '../ui/Reveal'
 import ProjectImage from './ProjectImage'
 import CategoryBadge from './CategoryBadge'
 import { useLanguage } from '../../context/LanguageContext'
+import ToolTag from '../toolbox/ToolTag'
 
 function ProjectCard({ project, delay = 0 }) {
   const { t } = useLanguage()
 
   return (
     <Reveal delay={delay} className="group">
-      <article className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-200 hover:border-accent/60">
+      <article className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-200 hover:border-accent/60 card-lift">
         <Link to={`/work/${project.id}`} className="p-3">
           <div className="transition-transform duration-300 group-hover:scale-[1.015]">
             <ProjectImage
@@ -36,12 +37,7 @@ function ProjectCard({ project, delay = 0 }) {
           {project.tech.length > 0 && (
             <ul className="mt-4 flex flex-wrap gap-2">
               {project.tech.map((tech) => (
-                <li
-                  key={tech}
-                  className="rounded border border-border px-2 py-0.5 text-[11px] text-foreground-secondary"
-                >
-                  {tech}
-                </li>
+                <li key={tech}><ToolTag compact>{tech}</ToolTag></li>
               ))}
             </ul>
           )}

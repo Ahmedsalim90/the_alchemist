@@ -1,7 +1,7 @@
 import infraaiLogo from '../assets/images/projects/infraai-logo.png'
-import identixLogo from '../assets/images/projects/identix-logo.JPEG'
+import identixLogo from '../assets/images/projects/identix-logo.jpeg'
 import tokLogo from '../assets/images/projects/tok-logo.png'
-import brochomakerLogo from '../assets/images/projects/brochomaker-logo.JPEG'
+import brochomakerLogo from '../assets/images/projects/brochomaker-logo.jpeg'
 import fileOrganiserPreview from '../assets/images/projects/file-organiser-preview.png'
 import infraaiCaseStudy from '../assets/images/projects/infraai-case-study.png'
 import identixCaseStudy from '../assets/images/projects/identix-case-study.png'
@@ -20,13 +20,13 @@ export const projects = [
     featured: true,
     links: [{ label: 'GitHub', href: 'https://github.com/Ahmedsalim90/infraAI' }],
 
-    role: 'Developer / Team Contributor',
+    role: 'Developer / Team Contributor / Database Manager',
     type: 'Collaborative Project',
-    status: 'In Development',
+    status: 'Project',
     overview:
       'InfraAI is a platform for designing and documenting system architectures. It combines a collaborative architecture canvas with AI assistance, allowing a team to visualize, discuss and document how a system is structured in one shared space.',
     problem:
-      'Designing and documenting system architecture is often scattered across separate tools — diagrams, chat, and documents — making it hard for a team to keep a shared, up-to-date picture of a system. InfraAI addresses this by bringing architecture visualization, AI assistance and team communication into one workspace.',
+      'Designing and documenting system architecture is often scattered across separate tools diagrams, chat, and documents making it hard for a team to keep a shared, up-to-date picture of a system. InfraAI addresses this by bringing architecture visualization, AI assistance and team communication into one workspace.',
     approach:
       'The project combines a real-time collaborative canvas for architecture diagrams with an AI assistant that can help generate and explain architecture decisions, using retrieval-augmented generation to ground responses in relevant context.',
     build: {
@@ -36,11 +36,11 @@ export const projects = [
       AI: ['OpenRouter', 'RAG'],
     },
     contribution:
-      'As a contributor on this team project, my work has involved frontend development with React and collaborating with the team on the overall product direction. Specific responsibilities will be expanded as the case study is documented further.',
+      'As a contributor on this team project, my work has involved frontend development with React and collaborating with the team on the overall product direction. Also participated in the backend by intergrating and training the AI model designe the database .',
     collaboration:
-      'InfraAI is built collaboratively with a team. It is not a solo project — the architecture, features and implementation are the result of shared team effort.',
+      'InfraAI is built collaboratively with a team. It is not a solo project the architecture, features and implementation are the result of shared team effort.',
     challenges:
-      'Challenges and implementation details will be expanded as the project case study is documented.',
+      'Our main challenge was to guide other teammates, showing them how to go about it though it was the first time we where dealing with AI intergration and the other problem was deployment it was not really for us to manage the deployment but we finally did and we had limited timeline for the project.',
     lessons:
       'Working on InfraAI has involved practical experience with real-time collaborative features, integrating AI through RAG, and coordinating development within a team.',
     currentState: 'In Development',

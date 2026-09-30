@@ -9,7 +9,7 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact Nsangou Ahmed Salim on WhatsApp"
-      className="fixed bottom-6 right-6 z-20 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-foreground-secondary shadow-sm transition-colors duration-200 hover:border-accent hover:text-accent"
+      className="fixed bottom-5 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full border border-whatsapp bg-surface shadow-whatsapp transition-all duration-300 hover:-translate-y-1 hover:bg-whatsapp-soft sm:bottom-6 sm:right-6"
     >
       <WhatsappIcon className="h-5 w-5" />
     </a>

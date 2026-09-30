@@ -29,7 +29,7 @@ function MobileNav({ isOpen, onClose, navLinks }) {
   return (
     <>
       <div
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-200 ${
+        className={`fixed inset-0 z-40 bg-background/80 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={onClose}
@@ -41,8 +41,9 @@ function MobileNav({ isOpen, onClose, navLinks }) {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className={`fixed inset-y-0 right-0 z-50 flex h-full w-full max-w-sm flex-col overflow-y-auto border-l border-border bg-surface transition-transform duration-200 ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        aria-hidden={!isOpen}
+        className={`fixed inset-y-0 right-0 z-50 flex h-dvh w-full max-w-sm flex-col overflow-y-auto border-l border-border bg-surface shadow-2xl transition-[transform,visibility] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isOpen ? 'visible translate-x-0' : 'invisible pointer-events-none translate-x-full'
         }`}
       >
         <button
@@ -50,7 +51,7 @@ function MobileNav({ isOpen, onClose, navLinks }) {
           type="button"
           onClick={onClose}
           aria-label="Close menu"
-          className="absolute right-5 top-5 z-10 rounded-md border border-border p-3 text-foreground transition-colors hover:border-accent hover:text-accent"
+          className="absolute right-5 top-5 z-10 rounded-md border border-border p-3 text-accent transition-colors hover:border-accent hover:bg-accent-soft"
         >
           <CloseIcon className="h-6 w-6" />
         </button>
@@ -65,16 +66,16 @@ function MobileNav({ isOpen, onClose, navLinks }) {
         </div>
 
         <nav aria-label="Primary" className="flex flex-1 flex-col items-center justify-center gap-6 border-b border-border px-8">
-          {navLinks.map((link) => (
-            
-            <a  
-            key={link.href}
+          {navLinks.map((link, i) => (
+            <a
+              key={link.href}
+              style={{ transitionDelay: isOpen ? `${150 + i * 60}ms` : '0ms' }}
               href={link.href}
               onClick={onClose}
-              className="flex w-full max-w-xs items-center justify-between rounded-md px-4 py-3 text-lg font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-elevated hover:text-accent active:bg-accent active:text-background"
+              className={`flex w-full max-w-xs items-center justify-between rounded-md px-4 py-3 text-lg font-semibold uppercase tracking-widest text-foreground transition-all duration-500 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'} hover:bg-elevated hover:text-accent active:bg-accent active:text-background`}
             >
               {link.label}
-              <ChevronIcon className="h-5 w-5 text-foreground-muted" />
+              <ChevronIcon className="h-5 w-5 text-accent" />
             </a>
           ))}
         </nav>
@@ -94,7 +95,7 @@ function MobileNav({ isOpen, onClose, navLinks }) {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-3 rounded-md px-3 py-2 text-base text-foreground-secondary transition-colors hover:text-accent active:bg-accent active:text-background"
+                  className="social-button flex items-center gap-3 rounded-md border border-transparent px-3 py-2 text-base text-foreground-secondary transition-colors hover:border-border hover:bg-elevated active:bg-accent-soft"
                 >
                   <Icon className="h-5 w-5" />
                   {social.label}

@@ -1,4 +1,5 @@
 import Reveal from '../ui/Reveal'
+import ToolTag from '../toolbox/ToolTag'
 
 function CapabilityBlock({ capability, delay = 0 }) {
   return (
@@ -16,12 +17,7 @@ function CapabilityBlock({ capability, delay = 0 }) {
           </p>
           <ul className="mt-2 flex flex-wrap gap-2">
             {capability.items.map((item) => (
-              <li
-                key={item}
-                className="rounded border border-border px-2.5 py-1 text-xs text-foreground-secondary"
-              >
-                {item}
-              </li>
+              <li key={item}><ToolTag compact>{item}</ToolTag></li>
             ))}
           </ul>
         </div>

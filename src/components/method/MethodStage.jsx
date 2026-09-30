@@ -11,8 +11,8 @@ function MethodStage({ step, delay = 0, isLast = false }) {
         }`}
       >
         <p
-          className={`text-xs font-semibold ${
-            isLast ? 'text-accent' : 'text-foreground-muted'
+          className={`font-mono text-3xl font-bold transition-colors ${
+            isLast ? 'text-accent' : 'text-foreground-muted/60 group-hover:text-accent'
           }`}
         >
           {step.number}

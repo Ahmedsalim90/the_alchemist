@@ -8,11 +8,20 @@ import ProjectLinks from '../components/case-study/ProjectLinks'
 import ProjectNavigation from '../components/case-study/ProjectNavigation'
 import { getProjectBySlug, getAdjacentProjects } from '../data/projects'
 import { useLanguage } from '../context/LanguageContext'
+import ToolTag from '../components/toolbox/ToolTag'
+import usePageTitle from '../hooks/usePageTitle'
 
 function CaseStudyPage() {
   const { slug } = useParams()
   const project = getProjectBySlug(slug)
   const { t } = useLanguage()
+
+  usePageTitle(
+    project ? `${project.title} — Case Study · THE ALCHEMIST` : 'Case Study · THE ALCHEMIST',
+    project
+      ? `${project.title}: a case study by Nsangou Ahmed Salim, Full-Stack & Mobile Developer.`
+      : 'Project case study by Nsangou Ahmed Salim.'
+  )
 
   if (!project) {
     return <Navigate to="/#work" replace />
@@ -61,7 +70,9 @@ function CaseStudyPage() {
             <p className="text-xs uppercase tracking-widest text-foreground-muted">
               {t.caseStudy.technologies}
             </p>
-            <p className="mt-1 text-sm text-foreground">{project.tech.join(' · ')}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {project.tech.map((tech) => <ToolTag key={tech} compact>{tech}</ToolTag>)}
+            </div>
           </div>
           <div>
             <p className="text-xs uppercase tracking-widest text-foreground-muted">{t.caseStudy.status}</p>

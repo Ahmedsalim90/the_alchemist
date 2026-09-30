@@ -12,10 +12,10 @@ function Toolbox() {
     <Section id="toolbox" surface="background">
       <Reveal direction="down" className="max-w-2xl">
         <p className="flex items-center gap-3 text-xs uppercase tracking-widest text-foreground-muted">
-          <span className="h-px w-8 bg-accent" aria-hidden="true" />
+          <span className="h-px w-8 bg-gradient-to-r from-accent to-transparent" aria-hidden="true" />
           {t.toolbox.eyebrow}
         </p>
-        <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+        <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           {t.toolbox.heading}
         </h2>
         <p className="mt-4 text-base text-foreground-secondary sm:text-lg">
@@ -23,7 +23,7 @@ function Toolbox() {
         </p>
       </Reveal>
 
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 xl:grid-cols-4">
         {toolboxCategories.map((category, index) => (
           <ToolCategory
             key={category.title}
@@ -37,7 +37,7 @@ function Toolbox() {
       </div>
 
       <Reveal delay={toolboxCategories.length * 70} className="mt-12 lg:mt-16">
-        <div className="border-t border-accent/40 pt-5">
+         <div className="rounded-lg border border-accent/30 bg-accent-soft p-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-accent">
             {t.toolbox.learningLabel}
           </p>

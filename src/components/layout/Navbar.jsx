@@ -22,26 +22,23 @@ function Navbar() {
   }, [])
 
   const navLinks = [
-    { label: t.nav.work, href: '#work' },
-    { label: t.nav.about, href: '#about' },
-    { label: t.nav.lab, href: '#lab' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.work, href: '/#work' },
+    { label: t.nav.about, href: '/#about' },
+    { label: t.nav.lab, href: '/#lab' },
+    { label: t.nav.contact, href: '/#contact' },
   ]
 
   return (
     <header
-      className={`sticky top-0 z-30 transition-colors duration-200 ${
+      className={`sticky top-0 z-40 transition-colors duration-200 ${
         isScrolled
-          ? 'border-b border-border bg-background/90 backdrop-blur'
-          : 'border-b border-transparent bg-transparent'
+          ? 'border-b border-border bg-background/95 shadow-lg backdrop-blur-xl'
+          : 'border-b border-border/60 bg-background/95 backdrop-blur-xl'
       }`}
     >
       <Container className="flex items-center justify-between py-6">
-        <a href="#hero" className="flex items-center gap-3">
-          <Logo />
-          <span className="font-display text-lg font-semibold uppercase tracking-widest text-foreground">
-            The Alchemist
-          </span>
+        <a href="/#hero" aria-label="The Alchemist — home" className="flex items-center">
+          <Logo className="h-16 w-auto -my-4 sm:h-20" />
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-12 md:flex">
@@ -67,7 +64,7 @@ function Navbar() {
           aria-label="Open menu"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-nav-drawer"
-          className="flex h-12 w-12 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:border-accent hover:text-accent md:hidden"
+          className="flex h-12 w-12 items-center justify-center rounded-md border border-border text-accent transition-colors hover:border-accent hover:bg-accent-soft md:hidden"
         >
           <MenuIcon className="h-7 w-7" />
         </button>

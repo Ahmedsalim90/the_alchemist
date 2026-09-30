@@ -1,3 +1,5 @@
+import ToolTag from '../toolbox/ToolTag'
+
 function TechnologyList({ build, categoryLabels }) {
   if (!build) return null
 
@@ -8,7 +10,9 @@ function TechnologyList({ build, categoryLabels }) {
           <dt className="text-xs font-semibold uppercase tracking-widest text-foreground-muted">
             {categoryLabels?.[category] || category}
           </dt>
-          <dd className="mt-2 text-sm text-foreground">{items.join(' · ')}</dd>
+          <dd className="mt-3 flex flex-wrap gap-2">
+            {items.map((item) => <ToolTag key={item} compact>{item}</ToolTag>)}
+          </dd>
         </div>
       ))}
     </dl>

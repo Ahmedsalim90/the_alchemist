@@ -14,10 +14,10 @@ function AlchemistMethod() {
     <Section id="method" surface="background">
       <Reveal direction="down" className="max-w-2xl">
         <p className="flex items-center gap-3 text-xs uppercase tracking-widest text-foreground-muted">
-          <span className="h-px w-8 bg-accent" aria-hidden="true" />
+          <span className="h-px w-8 bg-gradient-to-r from-accent to-transparent" aria-hidden="true" />
           {t.method.eyebrow}
         </p>
-        <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+        <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           {t.method.heading}
         </h2>
         <p className="mt-4 text-base text-foreground-secondary sm:text-lg">

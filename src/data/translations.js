@@ -196,7 +196,7 @@ export const translations = {
       heading: 'Building, learning, and turning ideas into software.',
       paragraphs: [
         'My name is Nsangou Ahmed Salim, a Software Engineering student and developer based in Cameroon. I enjoy turning real-world problems and ideas into software that people can actually use.',
-        'My work spans web applications, mobile experiences, backend systems and AI-powered tools. I also care about the thinking behind the code — from interface design and user flows to system architecture and implementation.',
+        'My work spans web applications, mobile experiences, backend systems and AI-powered tools. I also care about the thinking behind the code from interface design and user flows to system architecture and implementation.',
         'I am still learning, building and experimenting. For me, every project is an opportunity to understand a problem better, improve my skills and create something useful.',
       ],
       closing: 'Still learning. Still building.',
@@ -346,21 +346,21 @@ export const translations = {
     },
     caseStudies: {
       infraai: {
-        role: "Développeur / Contributeur d'équipe",
+        role: "Développeur / Contributeur d'équipe / Administrateur de base de donnée",
         type: 'Projet collaboratif',
-        status: 'En développement',
+        status: 'Projet',
         overview:
           "InfraAI est une plateforme pour concevoir et documenter des architectures système. Elle combine un canevas d'architecture collaboratif avec une assistance IA, permettant à une équipe de visualiser, discuter et documenter la structure d'un système dans un espace partagé.",
         problem:
-          "La conception et la documentation de l'architecture système sont souvent dispersées entre plusieurs outils — diagrammes, discussions, documents — rendant difficile pour une équipe de garder une vision partagée et à jour d'un système. InfraAI répond à cela en réunissant visualisation d'architecture, assistance IA et communication d'équipe dans un seul espace de travail.",
+          "La conception et la documentation de l'architecture système sont souvent dispersées entre plusieurs outils diagrammes, discussions, documents rendant difficile pour une équipe de garder une vision partagée et à jour d'un système. InfraAI répond à cela en réunissant visualisation d'architecture, assistance IA et communication d'équipe dans un seul espace de travail.",
         approach:
           "Le projet combine un canevas collaboratif en temps réel pour les diagrammes d'architecture avec un assistant IA capable d'aider à générer et expliquer des décisions d'architecture, en utilisant la génération augmentée par récupération (RAG) pour ancrer les réponses dans un contexte pertinent.",
         contribution:
           "En tant que contributeur sur ce projet d'équipe, mon travail a porté sur le développement frontend avec React et la collaboration avec l'équipe sur l'orientation générale du produit. Les responsabilités précises seront détaillées à mesure que l'étude de cas sera documentée.",
         collaboration:
-          "InfraAI est construit en collaboration avec une équipe. Ce n'est pas un projet solo — l'architecture, les fonctionnalités et l'implémentation sont le résultat d'un effort d'équipe partagé.",
+          "InfraAI est construit en collaboration avec une équipe. Ce n'est pas un projet solo l'architecture, les fonctionnalités et l'implémentation sont le résultat d'un effort d'équipe partagé.",
         challenges:
-          "Les défis et détails d'implémentation seront développés au fur et à mesure que l'étude de cas du projet sera documentée.",
+          "Notre plus grand challenge etait de guider les autres membres du groupe a s'intergrer parmis nous et le deploiement en production mais aussi la limite du temp n'etait pas si longue.",
         lessons:
           "Travailler sur InfraAI m'a permis d'acquérir une expérience pratique des fonctionnalités collaboratives en temps réel, de l'intégration de l'IA via le RAG, et de la coordination du développement au sein d'une équipe.",
         currentState: 'En développement',
@@ -482,7 +482,7 @@ export const translations = {
       heading: 'Construire, apprendre, et transformer des idées en logiciels.',
       paragraphs: [
         "Je m'appelle Nsangou Ahmed Salim, étudiant en génie logiciel et développeur basé au Cameroun. J'aime transformer des problèmes et des idées réels en logiciels que les gens peuvent réellement utiliser.",
-        "Mon travail couvre les applications web, les expériences mobiles, les systèmes backend et les outils basés sur l'IA. Je me soucie aussi de la réflexion derrière le code — du design d'interface aux parcours utilisateurs, jusqu'à l'architecture système et l'implémentation.",
+        "Mon travail couvre les applications web, les expériences mobiles, les systèmes backend et les outils basés sur l'IA. Je me soucie aussi de la réflexion derrière le code du design d'interface aux parcours utilisateurs, jusqu'à l'architecture système et l'implémentation.",
         "Je continue d'apprendre, de construire et d'expérimenter. Pour moi, chaque projet est une occasion de mieux comprendre un problème, d'améliorer mes compétences et de créer quelque chose d'utile.",
       ],
       closing: 'Toujours en apprentissage. Toujours en construction.',
