@@ -1,24 +1,70 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script>
-  (function () {
-    var theme = localStorage.getItem('portfolio-theme') || 'dark';
-    if (theme === 'light') document.documentElement.classList.add('light');
-  })();
-</script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/favicorn.jfif" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('portfolio-theme') || 'dark'
+          if (t === 'light') document.documentElement.classList.add('light')
+          var l = localStorage.getItem('portfolio-language')
+          if (l) document.documentElement.lang = l
+        } catch (e) {}
+      })()
+    </script>
+
+    <link rel="icon" type="image/jpeg" href="/favicon.jfif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Nsangou Ahmed Salim" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
 
     <title>THE ALCHEMIST — Nsangou Ahmed Salim</title>
+    <meta
+      name="description"
+      content="Nsangou Ahmed Salim — Full-Stack & Mobile Developer. Designer · Developer · Problem Solver. I turn real-world problems into software."
+    />
+    <link rel="canonical" href="https://the-alchemist-ten.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="THE ALCHEMIST" />
+    <meta property="og:title" content="THE ALCHEMIST — Nsangou Ahmed Salim" />
+    <meta
+      property="og:description"
+      content="Full-Stack & Mobile Developer. Designer · Developer · Problem Solver. I turn real-world problems into software."
+    />
+    <meta property="og:url" content="https://the-alchemist-ten.vercel.app/" />
+    <meta property="og:image" content="https://the-alchemist-ten.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="THE ALCHEMIST — Nsangou Ahmed Salim" />
+    <meta
+      name="twitter:description"
+      content="Full-Stack & Mobile Developer. Designer · Developer · Problem Solver. I turn real-world problems into software."
+    />
+    <meta name="twitter:image" content="https://the-alchemist-ten.vercel.app/og-image.jpg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nsangou Ahmed Salim",
+        "url": "https://the-alchemist-ten.vercel.app/",
+        "jobTitle": "Full-Stack & Mobile Developer",
+        "description": "Software Engineering student, developer and builder creating web applications, mobile experiences, backend systems and AI-powered tools.",
+        "sameAs": [
+          "https://github.com/Ahmedsalim90",
+          "https://www.linkedin.com/in/nsangou-ahmed-0126b2390"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

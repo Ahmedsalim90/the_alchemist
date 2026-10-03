@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://the-alchemist-ten.vercel.app/sitemap.xml
